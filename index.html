@@ -276,6 +276,50 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--txt);overf
 
 footer{text-align:center;padding:28px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--txt3);border-top:1px solid var(--bd);position:relative;z-index:1}
 
+
+/* SCROLL PROGRESS BAR */
+#scroll-progress{
+  position:fixed;left:0;top:0;bottom:0;width:3px;z-index:200;
+  background:rgba(0,120,212,.1);pointer-events:none;
+}
+#scroll-progress-fill{
+  width:100%;background:linear-gradient(180deg,var(--az),var(--cop));
+  height:0%;transition:height .1s linear;
+  box-shadow:0 0 8px var(--az);
+}
+/* BACK TO TOP */
+#btt{
+  position:fixed;bottom:32px;right:32px;z-index:200;
+  width:44px;height:44px;background:rgba(3,8,15,.9);
+  border:1px solid var(--bd);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:translateY(16px);
+  transition:opacity .3s,transform .3s,border-color .3s;
+  pointer-events:none;
+}
+#btt.show{opacity:1;transform:none;pointer-events:all;}
+#btt:hover{border-color:var(--az);background:var(--gl);}
+#btt .btt-logo{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:16px;height:16px;}
+#btt .bls{border-radius:1px;}
+/* TILT 3D */
+.cert{transform-style:preserve-3d;perspective:600px;}
+/* TYPING CURSOR */
+.hrole::after{
+  content:'|';
+  display:inline-block;
+  margin-left:2px;
+  color:var(--az3);
+  animation:blink .7s step-end infinite;
+  font-weight:300;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+/* TIMELINE DRAW */
+.tl::before{
+  transform-origin:top;
+  transform:scaleY(0);
+  transition:transform 1.5s cubic-bezier(.16,1,.3,1);
+}
+.tl.drawn::before{transform:scaleY(1);}
 /* REVEAL */
 .rev{opacity:0;transform:translateY(24px);transition:opacity .6s ease-out,transform .6s ease-out}
 .revl{opacity:0;transform:translateX(-24px);transition:opacity .6s ease-out,transform .6s ease-out}
@@ -345,6 +389,15 @@ footer{text-align:center;padding:28px;font-family:'JetBrains Mono',monospace;fon
 <body>
 
 <div class="fbar"></div>
+<div id="scroll-progress"><div id="scroll-progress-fill"></div></div>
+<button id="btt" aria-label="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <div class="btt-logo">
+    <div class="bls" style="background:#f35325"></div>
+    <div class="bls" style="background:#81bc06"></div>
+    <div class="bls" style="background:#05a6f0"></div>
+    <div class="bls" style="background:#ffba08"></div>
+  </div>
+</button>
 
 <!-- INTRO -->
 <div id="intro">
@@ -1006,6 +1059,69 @@ document.querySelectorAll('.slcard,.cert,.educ,.sblk,.btn,.trow').forEach(el=>{
   el.addEventListener('mouseleave',()=>el.style.willChange='auto');
 });
 
+
+/* ── SCROLL PROGRESS + BACK TO TOP ─────────────────────── */
+const progressFill=document.getElementById('scroll-progress-fill');
+const bttBtn=document.getElementById('btt');
+window.addEventListener('scroll',()=>{
+  const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
+  progressFill.style.height=pct+'%';
+  bttBtn.classList.toggle('show',window.scrollY>400);
+},{passive:true});
+
+/* ── TYPING EFFECT on .hrole ────────────────────────────── */
+const hrole=document.querySelector('.hrole');
+if(hrole){
+  const fullText=hrole.textContent;
+  hrole.textContent='';
+  hrole.style.borderLeft='3px solid var(--az)';
+  let ti=0;
+  const typeIv=setInterval(()=>{
+    if(ti<fullText.length){hrole.textContent=fullText.slice(0,++ti);}
+    else clearInterval(typeIv);
+  },38);
+  // Start after intro animation
+  setTimeout(()=>{hrole.textContent='';ti=0;},2600);
+}
+
+/* ── TIMELINE DRAW on scroll ────────────────────────────── */
+const tlEl=document.querySelector('.tl');
+if(tlEl){
+  const tlDrawObs=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){tlEl.classList.add('drawn');tlDrawObs.disconnect();}
+  },{threshold:0.05});
+  tlDrawObs.observe(tlEl);
+}
+
+/* ── TILT 3D on cert cards ──────────────────────────────── */
+document.querySelectorAll('.cert').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=((e.clientX-r.left)/r.width-.5)*16;
+    const y=((e.clientY-r.top)/r.height-.5)*-16;
+    card.style.transform=`scale(1.03) perspective(600px) rotateY(${x}deg) rotateX(${y}deg)`;
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='';
+  });
+});
+
+
+
+/* ── CHAPTER DIVIDER typing loop ─────────────────────────── */
+document.querySelectorAll('.cdlbl').forEach(el=>{
+  const orig=el.textContent;
+  let idx=orig.length,dir=-1,timer;
+  const loop=()=>{
+    el.textContent=orig.slice(0,idx);
+    idx+=dir;
+    if(idx<2){dir=1;}
+    if(idx>orig.length){dir=-1;timer=setTimeout(loop,2500);return;}
+    timer=setTimeout(loop,dir===1?55:35);
+  };
+  // Start with a random delay so they're not in sync
+  setTimeout(loop,Math.random()*4000+3000);
+});
 /* ── PAUSE WHEN TAB HIDDEN ────────────────────────────── */
 document.addEventListener('visibilitychange',()=>{
   if(p>=100&&introEl)introEl.style.display='none';
