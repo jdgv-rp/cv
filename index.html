@@ -710,14 +710,14 @@ let pipeT=0,pipeLast=0,pipeVisible=false;
 let _pipeTopY=110,_pipeTotalH=400;
 function cachePipeLayout(){
   const hch=document.querySelector('.hch');
-  const hbtns=document.querySelector('.hbtns');
+  const hkpis=document.querySelector('.hkpis');
   const hr=document.querySelector('.hr');
-  if(hch&&hbtns&&hr){
+  if(hch&&hkpis&&hr){
     const hrRect=hr.getBoundingClientRect();
-    const topRef=hch.getBoundingClientRect().top-hrRect.top;
-    const botRef=hbtns.getBoundingClientRect().bottom-hrRect.top;
+    const topRef=hch.getBoundingClientRect().bottom-hrRect.top;
+    const botRef=hkpis.getBoundingClientRect().bottom-hrRect.top;
     _pipeTopY=Math.max(40,topRef);
-    _pipeTotalH=Math.max(200,botRef-_pipeTopY);
+    _pipeTotalH=Math.max(200,botRef-_pipeTopY-25);
   }
 }
 // Cache after fonts/layout settle
@@ -740,7 +740,7 @@ function drawPipe(ts=0){
   tx.clearRect(0,0,cw,ch);
   tx.imageSmoothingEnabled=false;
   pipeT++;
-  const N=STAGES.length,nodeX=cw*.36;
+  const N=STAGES.length,nodeX=cw*.44;
   // Use cached layout values — no getBoundingClientRect per frame
   const padY=_pipeTopY,stepH=_pipeTotalH/(N-1);
   const nY=STAGES.map((_,i)=>padY+i*stepH);
