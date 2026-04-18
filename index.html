@@ -273,7 +273,7 @@ footer{text-align:center;padding:28px;font-family:'JetBrains Mono',monospace;fon
       <div class="nls" style="background:#05a6f0"></div>
       <div class="nls" style="background:#ffba08"></div>
     </div>
-    JDGV.dev
+    JDGV.cv
   </div>
   <div class="nlinks">
     <a href="#manifesto">Story</a>
@@ -619,7 +619,21 @@ function drawPipe(ts=0){
   tx.clearRect(0,0,cw,ch);
   tx.imageSmoothingEnabled=false;
   pipeT++;
-  const N=STAGES.length,padY=70,stepH=(ch-padY*2)/(N-1),nodeX=cw*.5;
+  const N=STAGES.length,nodeX=cw*.5;
+  // Align top with .hch, bottom with bottom of .hbtns
+  const hero=document.getElementById('hero');
+  const hch=document.querySelector('.hch');
+  const hbtns=document.querySelector('.hbtns');
+  const hr=document.querySelector('.hr');
+  let padY=110, totalH=ch-220;
+  if(hch&&hbtns&&hr){
+    const hrRect=hr.getBoundingClientRect();
+    const topRef=hch.getBoundingClientRect().top - hrRect.top;
+    const botRef=hbtns.getBoundingClientRect().bottom - hrRect.top;
+    padY=Math.max(40, topRef);
+    totalH=Math.max(200, botRef - padY);
+  }
+  const stepH=totalH/(N-1);
   const nY=STAGES.map((_,i)=>padY+i*stepH);
   // Connector lines
   for(let i=0;i<N-1;i++){
@@ -657,7 +671,7 @@ function drawPipe(ts=0){
 
 /* ── LAMBDA ARCHITECTURE CANVAS ────────────────────────── */
 const sc=document.getElementById('stackCanvas'),sx=sc.getContext('2d');
-const LB=.16,RB=.16;
+const LB=.16;
 function adaptiveBand(cw){return cw<500?.09:cw<700?.12:LB;}
 let bgCache=null;
 function rsSC(){
@@ -742,7 +756,6 @@ function lnxy(id,cw,ch){
   const n=LNODES.find(n=>n.id===id);
   if(!n)return{x:0,y:0};const r=lres(n,cw,ch);return{x:r.x,y:r.y};
 }
-function adaptiveBand(cw){return cw<500?.09:cw<700?.12:LB;}
 
 function drawBand(col,labelLines,items,bx,bw,bh,by){
   sx.fillStyle=col+'0a';sx.fillRect(bx,by,bw,bh);
@@ -752,18 +765,17 @@ function drawBand(col,labelLines,items,bx,bw,bh,by){
   sx.textAlign='center';sx.textBaseline='top';sx.fillStyle=col+'bb';
   sx.fillText(labelLines[0],bx+bw/2,by+8);
   const cardW=bw-4,cardX=bx+2,cardH=Math.min(42,(bh*.6)/items.length-4);
-  const totalH=items.length*(cardH+4)-4;let cardY=by+bh-totalH-8;
+  const totalH=items.length*(cardH+4)-4;let cardY=by+(bh-totalH)/2;
   items.forEach(item=>{
     const cy2=cardY+cardH/2;
     sx.fillStyle='rgba(6,14,26,.88)';sx.fillRect(cardX,cardY,cardW,cardH);
     sx.strokeStyle=col+'40';sx.lineWidth=1;sx.strokeRect(cardX,cardY,cardW,cardH);
     sx.fillStyle=col;sx.fillRect(cardX+2,cardY,cardW-4,1.5);
-    const lines=item.split('\n');
-    lines.forEach((ln,li)=>{
-      sx.font='600 '+(lines.length>1?8:9)+'px Outfit';
-      sx.textAlign='center';sx.textBaseline='middle';sx.fillStyle='rgba(238,244,255,.7)';
-      sx.fillText(ln,cardX+cardW/2,cy2+(li-(lines.length-1)/2)*10);
-    });
+    const label=item.replace('\n',' ');
+    let fs2=12;sx.font='700 '+fs2+'px Outfit';
+    while(sx.measureText(label).width>cardW-8&&fs2>8){fs2--;sx.font='700 '+fs2+'px Outfit';}
+    sx.textAlign='center';sx.textBaseline='middle';sx.fillStyle='rgba(238,244,255,.97)';
+    sx.fillText(label,cardX+cardW/2,cy2);
     cardY+=cardH+4;
   });
 }
