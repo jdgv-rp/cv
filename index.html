@@ -366,6 +366,86 @@ footer{text-align:center;padding:28px;font-family:'JetBrains Mono',monospace;fon
   .slegend{grid-template-columns:1fr}
   .hkpis{gap:24px}
 }
+
+/* ═══ ARQUITECTURA VIVA (estilo original) ═══ */
+.archx{position:relative;margin-bottom:64px;border:1px solid var(--bd);background:rgba(0,0,0,.6);clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+.archx-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 22px;border-bottom:1px solid var(--bd2)}
+.archx-title{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--txt3)}
+.archx-legend{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap}
+.archx-legend span{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt2);display:flex;align-items:center;gap:6px}
+.archx-legend i{width:7px;height:7px;background:var(--lc);box-shadow:0 0 8px var(--lc)}
+.archx-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#archx-svg{min-width:980px;width:100%;height:auto;display:block}
+.ax-lane{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.25em;text-transform:uppercase;fill:var(--txt3)}
+.ax-edge{fill:none;stroke:rgba(238,244,255,.12);stroke-width:1.5;transition:stroke .25s,opacity .25s}
+.ax-edge.e-gov{stroke-dasharray:4 6;stroke:rgba(80,230,255,.25)}
+.ax-pk{transition:opacity .25s}
+.pk-b{fill:#00aaff;filter:drop-shadow(0 0 5px rgba(0,170,255,.9))}
+.pk-s{fill:#ff00ff;filter:drop-shadow(0 0 5px rgba(255,0,255,.9))}
+.pk-p{fill:#c77dff;filter:drop-shadow(0 0 5px rgba(199,125,255,.9))}
+.pk-g{fill:#00ff88;filter:drop-shadow(0 0 5px rgba(0,255,136,.9))}
+.ax-node{cursor:pointer;transition:opacity .25s;outline:none}
+.ax-node rect{fill:rgba(3,8,15,.88);stroke:var(--bd);stroke-width:1.1;transition:stroke .2s,filter .2s}
+.ax-node text{fill:var(--txt);font-family:'JetBrains Mono',monospace;font-size:13px;pointer-events:none}
+.ax-node .ax-sub{fill:var(--txt3);font-size:10px}
+.ax-node:hover rect,.ax-node:focus rect{stroke:var(--c,#50e6ff)}
+.ax-hub rect{fill:rgba(6,3,12,.92);stroke:#c77dff;stroke-width:1.5;filter:drop-shadow(0 0 22px rgba(199,125,255,.3));animation:axhub 3.2s ease-in-out infinite}
+@keyframes axhub{50%{filter:drop-shadow(0 0 38px rgba(199,125,255,.55))}}
+.ax-hubt{font-size:16px;fill:#c77dff}
+.ax-gov rect{fill:rgba(3,8,15,.55);stroke-dasharray:5 5;stroke:rgba(80,230,255,.3)}
+.ax-gov text{fill:var(--txt2);font-size:11.5px}
+#archx-svg.focus .ax-edge{opacity:.08}
+#archx-svg.focus .ax-pk{opacity:.06}
+#archx-svg.focus .ax-node{opacity:.16}
+#archx-svg.focus .ax-node.lit{opacity:1}
+#archx-svg.focus .ax-pk.lit{opacity:1}
+#archx-svg.focus .ax-edge.lit{opacity:1;stroke-width:2}
+#archx-svg.focus .ax-edge.e-b.lit{stroke:#00aaff;filter:drop-shadow(0 0 6px rgba(0,170,255,.7))}
+#archx-svg.focus .ax-edge.e-s.lit{stroke:#ff00ff;filter:drop-shadow(0 0 6px rgba(255,0,255,.7))}
+#archx-svg.focus .ax-edge.e-g.lit{stroke:#00ff88;filter:drop-shadow(0 0 6px rgba(0,255,136,.7))}
+#archx-svg.focus .ax-edge.e-gov.lit{stroke:#50e6ff;filter:drop-shadow(0 0 6px rgba(80,230,255,.7))}
+.archx-info{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;padding:16px 22px;border-top:1px solid var(--bd2);min-height:78px}
+.archx-info #axi-t{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#50e6ff;white-space:nowrap}
+.archx-info #axi-d{font-size:13px;color:var(--txt2);line-height:1.7;max-width:54ch;flex:1;min-width:240px;margin:0}
+.archx-info .slpills{margin-left:auto;display:flex;flex-wrap:wrap;gap:5px;align-items:flex-start}
+@media (prefers-reduced-motion:reduce){.ax-hub rect{animation:none}}
+
+/* ═══ SKILLS por niveles (estilo original) ═══ */
+.skrow{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.skrow:last-child{border-bottom:none}
+.skrow .skn{font-size:14px;font-weight:600;display:block}
+.skctx{font-size:11px;color:var(--txt3);display:block;margin-top:2px}
+.lvl{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:5px 11px;border:1px solid;white-space:nowrap}
+.lvl-x{color:var(--cop);border-color:rgba(0,212,170,.4);background:rgba(0,212,170,.06)}
+.lvl-a{color:var(--az2);border-color:rgba(0,188,242,.4);background:rgba(0,188,242,.06)}
+.lvl-o{color:var(--txt2);border-color:rgba(238,244,255,.22);background:rgba(255,255,255,.03)}
+
+
+/* ═══ HERO PIPELINE VERTICAL (estilo arquitectura) ═══ */
+.pipex{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:96px 24px 64px;z-index:1}
+#pipex-svg{height:100%;max-height:640px;width:auto;max-width:100%}
+.px-edge{fill:none;stroke-width:2;opacity:.55;transition:opacity .25s,stroke-width .25s}
+.px-pk{transition:opacity .25s}
+.px-node{cursor:pointer;transition:opacity .25s;outline:none}
+.px-node rect{fill:rgba(3,8,15,.94);stroke:var(--c);stroke-opacity:.6;stroke-width:1.2;transition:stroke-opacity .2s,filter .2s}
+.px-node:hover rect,.px-node:focus rect{stroke-opacity:1;filter:drop-shadow(0 0 14px var(--c))}
+.px-ic{font-size:17px;font-family:'JetBrains Mono',monospace;pointer-events:none}
+.px-l{fill:var(--txt);font-size:13px;font-weight:600;font-family:'Outfit',sans-serif;pointer-events:none}
+.px-s{fill:var(--txt3);font-size:9.5px;font-family:'JetBrains Mono',monospace;letter-spacing:.04em;pointer-events:none}
+.px-n{font-size:9px;font-family:'JetBrains Mono',monospace;text-anchor:end;opacity:.55;pointer-events:none}
+.px-corner{fill:none;stroke-width:1;opacity:.55;pointer-events:none}
+.px-hub rect{stroke-opacity:.9;animation:pxhub 3.2s ease-in-out infinite}
+@keyframes pxhub{50%{filter:drop-shadow(0 0 22px rgba(138,43,226,.75))}}
+#pipex-svg.focus .px-edge{opacity:.07}
+#pipex-svg.focus .px-pk{opacity:.05}
+#pipex-svg.focus .px-node{opacity:.15}
+#pipex-svg.focus .px-node.lit{opacity:1}
+#pipex-svg.focus .px-node.lit rect{stroke-opacity:1;filter:drop-shadow(0 0 14px var(--c))}
+#pipex-svg.focus .px-edge.lit{opacity:1;stroke-width:2.6;filter:drop-shadow(0 0 6px var(--gc))}
+#pipex-svg.focus .px-pk.lit{opacity:1}
+@media (max-width:880px){.pipex{position:relative;min-height:520px;padding:32px 12px}}
+@media (prefers-reduced-motion:reduce){.px-hub rect{animation:none}}
+
 </style>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='2' y='2' width='45' height='45' rx='4' fill='%23f35325'/%3E%3Crect x='53' y='2' width='45' height='45' rx='4' fill='%2381bc06'/%3E%3Crect x='2' y='53' width='45' height='45' rx='4' fill='%2305a6f0'/%3E%3Crect x='53' y='53' width='45' height='45' rx='4' fill='%23ffba08'/%3E%3C/svg%3E">
   <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='2' y='2' width='45' height='45' rx='4' fill='%23f35325'/%3E%3Crect x='53' y='2' width='45' height='45' rx='4' fill='%2381bc06'/%3E%3Crect x='2' y='53' width='45' height='45' rx='4' fill='%2305a6f0'/%3E%3Crect x='53' y='53' width='45' height='45' rx='4' fill='%23ffba08'/%3E%3C/svg%3E">
@@ -480,7 +560,64 @@ footer{text-align:center;padding:28px;font-family:'JetBrains Mono',monospace;fon
       <div><div class="kval" data-t="15">0</div><div class="klbl">Certifi-<br>caciones</div></div>
     </div>
   </div>
-  <div class="hr"><canvas id="hero-particles"></canvas><canvas id="topo"></canvas></div>
+  <div class="hr"><canvas id="hero-particles"></canvas><canvas id="topo" style="display:none" aria-hidden="true"></canvas>
+<div class="pipex">
+<svg id="pipex-svg" viewBox="0 0 380 660" role="img" aria-label="Pipeline de datos: fuentes, ingesta, procesamiento, plataforma y consumo e IA">
+<defs><linearGradient id="pxg1" x1="0" y1="93" x2="0" y2="168" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00fff9"/><stop offset="1" stop-color="#00aaff"/></linearGradient><linearGradient id="pxg2" x1="0" y1="226" x2="0" y2="301" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00aaff"/><stop offset="1" stop-color="#ff00ff"/></linearGradient><linearGradient id="pxg3" x1="0" y1="359" x2="0" y2="434" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff00ff"/><stop offset="1" stop-color="#8a2be2"/></linearGradient><linearGradient id="pxg4" x1="0" y1="492" x2="0" y2="567" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8a2be2"/><stop offset="1" stop-color="#00ff88"/></linearGradient></defs>
+<path id="px-s1" class="px-edge" style="--gc:#00fff9" stroke="url(#pxg1)" d="M190,93 L190,168"/>
+<path id="px-s2" class="px-edge" style="--gc:#00aaff" stroke="url(#pxg2)" d="M190,226 L190,301"/>
+<path id="px-s3" class="px-edge" style="--gc:#ff00ff" stroke="url(#pxg3)" d="M190,359 L190,434"/>
+<path id="px-s4" class="px-edge" style="--gc:#8a2be2" stroke="url(#pxg4)" d="M190,492 L190,567"/>
+<circle class="px-pk" data-path="px-s1" r="3.2" fill="#00fff9" style="filter:drop-shadow(0 0 5px #00fff9)"><animateMotion dur="1.9s" begin="-0.00s" repeatCount="indefinite"><mpath href="#px-s1"/></animateMotion></circle>
+<circle class="px-pk" data-path="px-s1" r="2.6" fill="#00fff9" style="filter:drop-shadow(0 0 5px #00fff9)"><animateMotion dur="2.6s" begin="-1.10s" repeatCount="indefinite"><mpath href="#px-s1"/></animateMotion></circle>
+<circle class="px-pk" data-path="px-s2" r="3.2" fill="#00aaff" style="filter:drop-shadow(0 0 5px #00aaff)"><animateMotion dur="1.9s" begin="-0.45s" repeatCount="indefinite"><mpath href="#px-s2"/></animateMotion></circle>
+<circle class="px-pk" data-path="px-s2" r="2.6" fill="#00aaff" style="filter:drop-shadow(0 0 5px #00aaff)"><animateMotion dur="2.6s" begin="-1.55s" repeatCount="indefinite"><mpath href="#px-s2"/></animateMotion></circle>
+<circle class="px-pk" data-path="px-s3" r="3.2" fill="#ff00ff" style="filter:drop-shadow(0 0 5px #ff00ff)"><animateMotion dur="1.9s" begin="-0.90s" repeatCount="indefinite"><mpath href="#px-s3"/></animateMotion></circle>
+<circle class="px-pk" data-path="px-s3" r="2.6" fill="#ff00ff" style="filter:drop-shadow(0 0 5px #ff00ff)"><animateMotion dur="2.6s" begin="-2.00s" repeatCount="indefinite"><mpath href="#px-s3"/></animateMotion></circle>
+<circle class="px-pk" data-path="px-s4" r="3.2" fill="#8a2be2" style="filter:drop-shadow(0 0 5px #8a2be2)"><animateMotion dur="1.9s" begin="-1.35s" repeatCount="indefinite"><mpath href="#px-s4"/></animateMotion></circle>
+<circle class="px-pk" data-path="px-s4" r="2.6" fill="#8a2be2" style="filter:drop-shadow(0 0 5px #8a2be2)"><animateMotion dur="2.6s" begin="-2.45s" repeatCount="indefinite"><mpath href="#px-s4"/></animateMotion></circle>
+<g class="px-node" data-paths="px-s1" style="--c:#00fff9" tabindex="0" aria-label="Fuentes de Datos">
+      <rect x="60" y="35" width="260" height="58" rx="3"/>
+      <text class="px-ic" x="78" y="71" fill="#00fff9">◈</text>
+      <text class="px-l" x="106" y="63">Fuentes de Datos</text>
+      <text class="px-s" x="106" y="81">SAP · SQL · APIs · Streams</text>
+      <text class="px-n" x="308" y="53" fill="#00fff9">01</text>
+      <path class="px-corner" d="M308,35 L320,35 L320,47" stroke="#00fff9"/>
+    </g>
+<g class="px-node" data-paths="px-s1,px-s2" style="--c:#00aaff" tabindex="0" aria-label="Ingesta">
+      <rect x="60" y="168" width="260" height="58" rx="3"/>
+      <text class="px-ic" x="78" y="204" fill="#00aaff">⟳</text>
+      <text class="px-l" x="106" y="196">Ingesta</text>
+      <text class="px-s" x="106" y="214">Batch · Real Time</text>
+      <text class="px-n" x="308" y="186" fill="#00aaff">02</text>
+      <path class="px-corner" d="M308,168 L320,168 L320,180" stroke="#00aaff"/>
+    </g>
+<g class="px-node" data-paths="px-s2,px-s3" style="--c:#ff00ff" tabindex="0" aria-label="Procesamiento">
+      <rect x="60" y="301" width="260" height="58" rx="3"/>
+      <text class="px-ic" x="78" y="337" fill="#ff00ff">⚙</text>
+      <text class="px-l" x="106" y="329">Procesamiento</text>
+      <text class="px-s" x="106" y="347">Pipelines · Spark Notebooks</text>
+      <text class="px-n" x="308" y="319" fill="#ff00ff">03</text>
+      <path class="px-corner" d="M308,301 L320,301 L320,313" stroke="#ff00ff"/>
+    </g>
+<g class="px-node px-hub" data-paths="px-s3,px-s4" style="--c:#8a2be2" tabindex="0" aria-label="Plataforma">
+      <rect x="60" y="434" width="260" height="58" rx="3"/>
+      <text class="px-ic" x="78" y="470" fill="#8a2be2">◆</text>
+      <text class="px-l" x="106" y="462">Plataforma</text>
+      <text class="px-s" x="106" y="480">Microsoft Fabric · Databricks</text>
+      <text class="px-n" x="308" y="452" fill="#8a2be2">04</text>
+      <path class="px-corner" d="M308,434 L320,434 L320,446" stroke="#8a2be2"/>
+    </g>
+<g class="px-node" data-paths="px-s4" style="--c:#00ff88" tabindex="0" aria-label="Consumo &amp; IA">
+      <rect x="60" y="567" width="260" height="58" rx="3"/>
+      <text class="px-ic" x="78" y="603" fill="#00ff88">✦</text>
+      <text class="px-l" x="106" y="595">Consumo &amp; IA</text>
+      <text class="px-s" x="106" y="613">Power BI · OpenAI · ML</text>
+      <text class="px-n" x="308" y="585" fill="#00ff88">05</text>
+      <path class="px-corner" d="M308,567 L320,567 L320,579" stroke="#00ff88"/>
+    </g>
+</svg>
+</div></div>
 </section>
 
 <div class="cdiv"><div class="cdl"></div><div class="cdlbl">// story.begin()</div><div class="cdl"></div></div>
@@ -520,9 +657,108 @@ footer{text-align:center;padding:28px;font-family:'JetBrains Mono',monospace;fon
     <div class="shead rev">
       <div class="seye"><span class="ch-tag" style="color:#81bc06;border-color:rgba(129,188,6,.3)">02</span><span class="sel" style="background:#81bc06"></span><span style="color:#81bc06">Universo Tecnológico</span></div>
       <div class="stitle-row"><h2 class="stitle">El Stack</h2><span class="ch-num" style="background:linear-gradient(135deg,rgba(129,188,6,.22),rgba(129,188,6,.06));-webkit-background-clip:text;-webkit-text-fill-color:transparent">02</span></div>
-      <p class="ssub">Stack tecnológico habitual organizado sobre una arquitectura Lambda — no es un diseño concreto, sino las tecnologías que manejo en proyectos reales.</p>
+      <p class="ssub">Stack tecnológico habitual organizado sobre una arquitectura Lambda — no es un diseño concreto, sino las tecnologías que manejo en proyectos reales, con el dato fluyendo de las fuentes a la decisión. <strong style="color:var(--txt)">Toca cualquier nodo</strong> para iluminar su ruta.</p>
     </div>
-    <div class="scwrap rev"><canvas id="stackCanvas"></canvas></div>
+    <canvas id="stackCanvas" style="display:none" aria-hidden="true"></canvas>
+<div class="archx rev">
+  <div class="archx-top">
+    <span class="archx-title">// plataforma.render( &lambda; )</span>
+    <div class="archx-legend">
+      <span style="--lc:#00aaff"><i></i>batch</span>
+      <span style="--lc:#ff00ff"><i></i>stream</span>
+      <span style="--lc:#c77dff"><i></i>plataforma</span>
+      <span style="--lc:#00ff88"><i></i>consumo &amp; ia</span>
+    </div>
+  </div>
+  <div class="archx-scroll">
+  <svg id="archx-svg" viewBox="0 0 1200 650" role="img" aria-label="Arquitectura de datos: fuentes, ingesta batch y stream, Microsoft Fabric como hub, gobierno y capa de consumo e IA">
+    <text class="ax-lane" x="40"  y="80">Fuentes</text>
+    <text class="ax-lane" x="280" y="150" fill="#00aaff">&lambda; &middot; Batch</text>
+    <text class="ax-lane" x="280" y="344" fill="#ff00ff">&lambda; &middot; Speed / Stream</text>
+    <text class="ax-lane" x="740" y="180" fill="#c77dff">Plataforma</text>
+    <text class="ax-lane" x="1000" y="92" fill="#00ff88">Consumo &amp; IA</text>
+
+    <path id="ax-p1"  class="ax-edge e-b" d="M190,130 C240,130 240,206 280,206"/>
+    <path id="ax-p2"  class="ax-edge e-b" d="M190,200 C240,200 240,206 280,206"/>
+    <path id="ax-p3"  class="ax-edge e-b" d="M190,270 C240,270 240,206 280,206"/>
+    <path id="ax-p4"  class="ax-edge e-s" d="M190,400 C240,400 240,400 280,400"/>
+    <path id="ax-p5"  class="ax-edge e-s" d="M190,470 C240,470 240,400 280,400"/>
+    <path id="ax-p6"  class="ax-edge e-b" d="M440,206 C465,206 465,206 490,206"/>
+    <path id="ax-p7"  class="ax-edge e-b" d="M660,206 C705,206 700,272 740,272"/>
+    <path id="ax-p8"  class="ax-edge e-s" d="M440,400 C465,400 465,400 490,400"/>
+    <path id="ax-p9"  class="ax-edge e-s" d="M660,400 C705,400 700,338 740,338"/>
+    <path id="ax-p10" class="ax-edge e-g" d="M940,250 C975,250 970,144 1000,144"/>
+    <path id="ax-p11" class="ax-edge e-g" d="M940,283 C975,283 970,240 1000,240"/>
+    <path id="ax-p12" class="ax-edge e-g" d="M940,327 C975,327 970,336 1000,336"/>
+    <path id="ax-p13" class="ax-edge e-g" d="M940,360 C975,360 970,432 1000,432"/>
+    <path id="ax-pg"  class="ax-edge e-gov" d="M840,405 L840,556"/>
+
+    <circle class="ax-pk pk-b" data-path="ax-p1" r="3.4"><animateMotion dur="2.6s" begin="0s" repeatCount="indefinite"><mpath href="#ax-p1"/></animateMotion></circle>
+    <circle class="ax-pk pk-b" data-path="ax-p2" r="3"><animateMotion dur="2.2s" begin="-0.9s" repeatCount="indefinite"><mpath href="#ax-p2"/></animateMotion></circle>
+    <circle class="ax-pk pk-b" data-path="ax-p3" r="3.4"><animateMotion dur="2.8s" begin="-1.6s" repeatCount="indefinite"><mpath href="#ax-p3"/></animateMotion></circle>
+    <circle class="ax-pk pk-s" data-path="ax-p4" r="3"><animateMotion dur="1.7s" begin="-0.4s" repeatCount="indefinite"><mpath href="#ax-p4"/></animateMotion></circle>
+    <circle class="ax-pk pk-s" data-path="ax-p5" r="3.4"><animateMotion dur="2.1s" begin="-1.2s" repeatCount="indefinite"><mpath href="#ax-p5"/></animateMotion></circle>
+    <circle class="ax-pk pk-b" data-path="ax-p6" r="3.4"><animateMotion dur="1.4s" begin="0s" repeatCount="indefinite"><mpath href="#ax-p6"/></animateMotion></circle>
+    <circle class="ax-pk pk-p" data-path="ax-p7" r="3.6"><animateMotion dur="2.0s" begin="-0.7s" repeatCount="indefinite"><mpath href="#ax-p7"/></animateMotion></circle>
+    <circle class="ax-pk pk-s" data-path="ax-p8" r="3.4"><animateMotion dur="1.1s" begin="-0.3s" repeatCount="indefinite"><mpath href="#ax-p8"/></animateMotion></circle>
+    <circle class="ax-pk pk-p" data-path="ax-p9" r="3.6"><animateMotion dur="1.6s" begin="-1.0s" repeatCount="indefinite"><mpath href="#ax-p9"/></animateMotion></circle>
+    <circle class="ax-pk pk-g" data-path="ax-p10" r="4"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite"><mpath href="#ax-p10"/></animateMotion></circle>
+    <circle class="ax-pk pk-g" data-path="ax-p11" r="4"><animateMotion dur="2.0s" begin="-0.8s" repeatCount="indefinite"><mpath href="#ax-p11"/></animateMotion></circle>
+    <circle class="ax-pk pk-g" data-path="ax-p12" r="4"><animateMotion dur="2.2s" begin="-1.4s" repeatCount="indefinite"><mpath href="#ax-p12"/></animateMotion></circle>
+    <circle class="ax-pk pk-g" data-path="ax-p13" r="4"><animateMotion dur="2.6s" begin="-0.5s" repeatCount="indefinite"><mpath href="#ax-p13"/></animateMotion></circle>
+
+    <g class="ax-node" data-paths="ax-p1" data-c="#00aaff" data-title="SAP · ERP" data-desc="Sistemas corporativos de origen: extracción e integración con el ecosistema SAP que conozco desde dentro." data-chips="SAP BW4HANA,SAP Data Services">
+      <rect x="40" y="108" width="150" height="44"/><text x="58" y="135">SAP &middot; ERP</text></g>
+    <g class="ax-node" data-paths="ax-p2" data-c="#00aaff" data-title="Bases de datos" data-desc="Orígenes relacionales on-prem y cloud, replicación y CDC hacia la plataforma." data-chips="SQL Server,Azure SQL,CDC">
+      <rect x="40" y="178" width="150" height="44"/><text x="58" y="205">Bases de datos</text></g>
+    <g class="ax-node" data-paths="ax-p3" data-c="#00aaff" data-title="APIs · SaaS" data-desc="Conectores y APIs de aplicaciones de negocio integrados en pipelines gobernados." data-chips="REST,Conectores ADF">
+      <rect x="40" y="248" width="150" height="44"/><text x="58" y="275">APIs &middot; SaaS</text></g>
+    <g class="ax-node" data-paths="ax-p4" data-c="#ff00ff" data-title="IoT · Eventos" data-desc="Telemetría y eventos de negocio capturados en el mismo instante en que ocurren." data-chips="Event Hub,MQTT">
+      <rect x="40" y="378" width="150" height="44"/><text x="58" y="405">IoT &middot; Eventos</text></g>
+    <g class="ax-node" data-paths="ax-p5" data-c="#ff00ff" data-title="Ficheros · Logs" data-desc="Ficheros planos, logs y exports masivos aterrizando en el lake de forma gobernada." data-chips="Parquet,CSV,OneLake">
+      <rect x="40" y="448" width="150" height="44"/><text x="58" y="475">Ficheros &middot; Logs</text></g>
+
+    <g class="ax-node" data-paths="ax-p1,ax-p2,ax-p3,ax-p6" data-c="#00aaff" data-title="Azure Data Factory" data-desc="Orquestación de ingesta batch: pipelines programados, CDC y movimientos masivos de datos con CI/CD." data-chips="Pipelines,CDC,GitHub CI/CD,Azure DevOps">
+      <rect x="280" y="178" width="160" height="56"/><text x="298" y="201">Azure Data</text><text x="298" y="218">Factory</text></g>
+    <g class="ax-node" data-paths="ax-p6,ax-p7" data-c="#00aaff" data-title="Databricks · Delta Lake" data-desc="Transformación masiva y modelado medallion sobre Delta Lake con PySpark — Certified Data Engineer." data-chips="Apache Spark,PySpark,Delta Lake,Unity Catalog">
+      <rect x="490" y="178" width="170" height="56"/><text x="508" y="201">Databricks</text><text x="508" y="218" class="ax-sub">Spark &middot; Delta Lake</text></g>
+
+    <g class="ax-node" data-paths="ax-p4,ax-p5,ax-p8" data-c="#ff00ff" data-title="Event Hub" data-desc="Captura de eventos a escala con baja latencia: la puerta de entrada del tiempo real." data-chips="Event Hub,Kafka protocol">
+      <rect x="280" y="372" width="160" height="56"/><text x="298" y="405">Event Hub</text></g>
+    <g class="ax-node" data-paths="ax-p8,ax-p9" data-c="#ff00ff" data-title="Eventstream · KQL" data-desc="Procesamiento de streams y analítica en caliente con Real-Time Intelligence de Fabric." data-chips="Eventstream,KQL,Real-Time Hub">
+      <rect x="490" y="372" width="170" height="56"/><text x="508" y="395">Eventstream</text><text x="508" y="412" class="ax-sub">KQL &middot; Real-Time</text></g>
+
+    <g class="ax-node ax-hub" data-paths="ax-p7,ax-p9,ax-p10,ax-p11,ax-p12,ax-p13,ax-pg" data-c="#c77dff" data-title="Microsoft Fabric · OneLake" data-desc="El punto de convergencia: almacena, unifica y sirve batch y stream sobre OneLake con una única capa semántica. Certificado DP-600 y DP-700." data-chips="Microsoft Fabric,OneLake,Lakehouse,Direct Lake,Capa semántica">
+      <rect x="740" y="210" width="200" height="195"/>
+      <text class="ax-hubt" x="762" y="248">Microsoft</text>
+      <text class="ax-hubt" x="762" y="272">Fabric</text>
+      <text x="762" y="304" class="ax-sub">OneLake &middot; Lakehouse</text>
+      <text x="762" y="322" class="ax-sub">Direct Lake &middot; Sem&aacute;ntica</text>
+      <circle cx="770" cy="368" r="5.5" fill="#00aaff"/>
+      <circle cx="792" cy="368" r="5.5" fill="#ff00ff"/>
+      <circle cx="814" cy="368" r="5.5" fill="#00ff88"/>
+      <text x="832" y="372" class="ax-sub">convergencia</text></g>
+
+    <g class="ax-node" data-paths="ax-p10" data-c="#00ff88" data-title="Power BI" data-desc="Reporting ejecutivo sobre la capa semántica: dashboards que dirigen comités de dirección. PL-300." data-chips="Power BI,Direct Lake,DAX">
+      <rect x="1000" y="120" width="170" height="48"/><text x="1018" y="149">Power BI</text></g>
+    <g class="ax-node" data-paths="ax-p11" data-c="#00ff88" data-title="Azure OpenAI" data-desc="IA generativa sobre el dato corporativo: primer arquitecto en llevar GenAI a producción en Repsol. AI-102." data-chips="Azure OpenAI,LLMs,RAG">
+      <rect x="1000" y="216" width="170" height="48"/><text x="1018" y="245">Azure OpenAI</text></g>
+    <g class="ax-node" data-paths="ax-p12" data-c="#00ff88" data-title="Copilot Studio" data-desc="Agentes y copilotos conectados a la plataforma de datos para usuarios de negocio." data-chips="Copilot Studio,Agentes IA">
+      <rect x="1000" y="312" width="170" height="48"/><text x="1018" y="341">Copilot Studio</text></g>
+    <g class="ax-node" data-paths="ax-p13" data-c="#00ff88" data-title="Azure ML · MLflow" data-desc="Modelos predictivos con ciclo de vida gobernado, del experimento al despliegue." data-chips="Azure ML,MLflow">
+      <rect x="1000" y="408" width="170" height="48"/><text x="1018" y="437">Azure ML &middot; MLflow</text></g>
+
+    <g class="ax-node ax-gov" data-paths="ax-pg" data-c="#50e6ff" data-title="Gobierno end-to-end" data-desc="Seguridad, catálogo y linaje atraviesan toda la plataforma: ningún dato sin dueño, sin permiso ni sin trazabilidad." data-chips="Microsoft Purview,Unity Catalog,Azure AD,RBAC,Data Lineage">
+      <rect x="280" y="556" width="660" height="58"/>
+      <text x="396" y="591">Gobierno — Purview &middot; Unity Catalog &middot; Azure AD &middot; RBAC &middot; Lineage</text></g>
+  </svg>
+  </div>
+  <div class="archx-info" aria-live="polite">
+    <span id="axi-t">// selecciona un nodo</span>
+    <p id="axi-d">Cada caja es tecnología que uso en proyectos reales. Pasa el cursor (o toca) para ver qué hace, qué ruta sigue su dato y con qué herramientas trabajo en esa pieza.</p>
+    <div id="axi-c" class="slpills"></div>
+  </div>
+</div>
 <!-- SEO: stack content for crawlers (canvas is not indexable) -->
 <div aria-hidden="false" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
   Stack tecnológico: Microsoft Fabric, OneLake, Lakehouse, Direct Lake, Azure Data Factory,
@@ -667,25 +903,28 @@ footer{text-align:center;padding:28px;font-family:'JetBrains Mono',monospace;fon
     <div class="shead rev">
       <div class="seye"><span class="ch-tag" style="color:#f35325;border-color:rgba(243,83,37,.3)">05</span><span class="sel" style="background:#f35325"></span><span style="color:#f35325">Competencias & Formación</span></div>
       <div class="stitle-row"><h2 class="stitle">Skills</h2><span class="ch-num" style="background:linear-gradient(135deg,rgba(243,83,37,.22),rgba(243,83,37,.06));-webkit-background-clip:text;-webkit-text-fill-color:transparent">05</span></div>
+      <p class="ssub">Niveles basados en uso real en proyectos enterprise — no en porcentajes.</p>
     </div>
     <div class="skillslayout">
       <div>
         <div class="skg rev">
           <div class="sgt">// Plataformas</div>
-          <div class="sk"><div class="skh"><span class="skn">Microsoft Fabric</span><span class="skp">98%</span></div><div class="skt"><div class="skf" data-p="98"></div></div></div>
-          <div class="sk"><div class="skh"><span class="skn">Microsoft Azure</span><span class="skp">96%</span></div><div class="skt"><div class="skf" data-p="96"></div></div></div>
-          <div class="sk"><div class="skh"><span class="skn">Databricks</span><span class="skp">85%</span></div><div class="skt"><div class="skf" data-p="85"></div></div></div>
-          <div class="sk"><div class="skh"><span class="skn">AWS</span><span class="skp">55%</span></div><div class="skt"><div class="skf" data-p="55"></div></div></div>
-        </div>
+          <div class="skrow"><div><span class="skn">Microsoft Fabric</span><span class="skctx">Plataforma central en proyectos actuales</span></div><span class="lvl lvl-x">Experto</span></div>
+          <div class="skrow"><div><span class="skn">Microsoft Azure</span><span class="skctx">7+ años como plataforma principal</span></div><span class="lvl lvl-x">Experto</span></div>
+          <div class="skrow"><div><span class="skn">Databricks</span><span class="skctx">Procesamiento batch sobre Delta Lake</span></div><span class="lvl lvl-a">Avanzado</span></div>
+          <div class="skrow"><div><span class="skn">AWS</span><span class="skctx">Cloud Practitioner certificado</span></div><span class="lvl lvl-o">Operativo</span></div>
+
+          </div>
         <div class="skg rev">
           <div class="sgt">// Skills</div>
-          <div class="sk"><div class="skh"><span class="skn">Arquitectura de Datos</span><span class="skp">98%</span></div><div class="skt"><div class="skf" data-p="98"></div></div></div>
-          <div class="sk"><div class="skh"><span class="skn">Data Engineering Batch</span><span class="skp">97%</span></div><div class="skt"><div class="skf" data-p="97"></div></div></div>
-          <div class="sk"><div class="skh"><span class="skn">Arquitectura de Soluciones</span><span class="skp">95%</span></div><div class="skt"><div class="skf" data-p="95"></div></div></div>
-          <div class="sk"><div class="skh"><span class="skn">IA Generativa</span><span class="skp">95%</span></div><div class="skt"><div class="skf" data-p="95"></div></div></div>
-          <div class="sk"><div class="skh"><span class="skn">Analytics</span><span class="skp">93%</span></div><div class="skt"><div class="skf" data-p="93"></div></div></div>
-          <div class="sk"><div class="skh"><span class="skn">Data Engineering Streaming</span><span class="skp">90%</span></div><div class="skt"><div class="skf" data-p="90"></div></div></div>
-        </div>
+          <div class="skrow"><div><span class="skn">Arquitectura de Datos</span><span class="skctx">Diseño end-to-end para enterprise</span></div><span class="lvl lvl-x">Experto</span></div>
+          <div class="skrow"><div><span class="skn">Data Engineering Batch</span><span class="skctx">Pipelines, CDC, transformación masiva</span></div><span class="lvl lvl-x">Experto</span></div>
+          <div class="skrow"><div><span class="skn">Arquitectura de Soluciones</span><span class="skctx">AZ-305 · Solutions Architect Expert</span></div><span class="lvl lvl-x">Experto</span></div>
+          <div class="skrow"><div><span class="skn">IA Generativa</span><span class="skctx">Azure OpenAI · Copilot Studio en producción</span></div><span class="lvl lvl-x">Experto</span></div>
+          <div class="skrow"><div><span class="skn">Analytics</span><span class="skctx">Power BI, modelos semánticos</span></div><span class="lvl lvl-a">Avanzado</span></div>
+          <div class="skrow"><div><span class="skn">Data Engineering Streaming</span><span class="skctx">Event Hub · Real-Time Intelligence</span></div><span class="lvl lvl-a">Avanzado</span></div>
+
+          </div>
       </div>
       <div>
         <div class="rev">
@@ -1229,6 +1468,90 @@ document.addEventListener('visibilitychange',()=>{
   if(!document.hidden&&stackVisible)requestAnimationFrame(drawLambda);
   if(!document.hidden&&pipeVisible)requestAnimationFrame(drawPipe);
 });
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var svg = document.getElementById('archx-svg');
+  if (!svg) return;
+  var aiT = document.getElementById('axi-t'),
+      aiD = document.getElementById('axi-d'),
+      aiC = document.getElementById('axi-c');
+  var DEFT = aiT.textContent, DEFD = aiD.textContent, lit = [];
+  function clear(){
+    svg.classList.remove('focus');
+    lit.forEach(function(el){ el.classList.remove('lit'); });
+    lit = [];
+    aiT.textContent = DEFT; aiT.style.color = '';
+    aiD.textContent = DEFD; aiC.innerHTML = '';
+  }
+  function light(node){
+    clear();
+    svg.classList.add('focus');
+    node.classList.add('lit'); lit.push(node);
+    (node.dataset.paths || '').split(',').forEach(function(id){
+      id = id.trim(); if (!id) return;
+      var p = svg.querySelector('#' + id);
+      if (p) { p.classList.add('lit'); lit.push(p); }
+      var pks = svg.querySelectorAll('[data-path="' + id + '"]');
+      for (var i = 0; i < pks.length; i++) { pks[i].classList.add('lit'); lit.push(pks[i]); }
+    });
+    aiT.textContent = '// ' + node.dataset.title;
+    aiT.style.color = node.dataset.c || '';
+    aiD.textContent = node.dataset.desc;
+    aiC.innerHTML = '';
+    (node.dataset.chips || '').split(',').forEach(function(c){
+      var s = document.createElement('span');
+      s.className = 'slp'; s.textContent = c.trim();
+      aiC.appendChild(s);
+    });
+  }
+  var nodes = svg.querySelectorAll('.ax-node');
+  for (var i = 0; i < nodes.length; i++) (function(node){
+    node.style.setProperty('--c', node.dataset.c || '#50e6ff');
+    node.setAttribute('tabindex','0');
+    node.addEventListener('mouseenter', function(){ light(node); });
+    node.addEventListener('focus', function(){ light(node); });
+    node.addEventListener('click', function(e){ e.stopPropagation(); light(node); });
+  })(nodes[i]);
+  svg.addEventListener('mouseleave', clear);
+  document.addEventListener('click', function(e){ if (!svg.contains(e.target)) clear(); });
+})();
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var svg = document.getElementById('pipex-svg');
+  if (!svg) return;
+  var lit = [];
+  function clear(){
+    svg.classList.remove('focus');
+    lit.forEach(function(el){ el.classList.remove('lit'); });
+    lit = [];
+  }
+  function light(node){
+    clear();
+    svg.classList.add('focus');
+    node.classList.add('lit'); lit.push(node);
+    (node.dataset.paths || '').split(',').forEach(function(id){
+      id = id.trim(); if (!id) return;
+      var p = svg.querySelector('#' + id);
+      if (p) { p.classList.add('lit'); lit.push(p); }
+      var pks = svg.querySelectorAll('[data-path="' + id + '"]');
+      for (var i = 0; i < pks.length; i++) { pks[i].classList.add('lit'); lit.push(pks[i]); }
+    });
+  }
+  var nodes = svg.querySelectorAll('.px-node');
+  for (var i = 0; i < nodes.length; i++) (function(node){
+    node.addEventListener('mouseenter', function(){ light(node); });
+    node.addEventListener('focus', function(){ light(node); });
+    node.addEventListener('click', function(e){ e.stopPropagation(); light(node); });
+  })(nodes[i]);
+  svg.addEventListener('mouseleave', clear);
+  document.addEventListener('click', function(e){ if (!svg.contains(e.target)) clear(); });
+})();
 </script>
 </body>
 </html>
